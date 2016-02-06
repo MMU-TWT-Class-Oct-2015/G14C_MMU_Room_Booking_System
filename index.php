@@ -21,12 +21,14 @@
 	</tr>
 	<tr>
 		<td width="18%">
-		<p align="center"><a href="#">
+		<p align="center"><a href="register.php">
 		<img border="0" src="image/applynow.jpg" width="191" height="138"></a></td>
+		<td width="18%">
+		<p align="center"><a href="member-login.php">
+		<img border="0" src="image/member.png" width="191" height="138"></a></td>
 		<td width="23%">
-		<p align="center">
-		<a href="login.php">
-		<img border="0" src="image/login_icon1.gif" width="192" height="140"></a></td>
+		<p align="center"><a href="admin-login.php">
+		<img border="0" src="image/admin.gif" width="192" height="140"></a></td>
 	</tr>
 	<tr>
 		<td align="top" height="211" bgcolor="#C0C0C0" colspan="3"><span id="Pagelayoutothersl1_MainContents1_lblContents" class="insidecontent">
