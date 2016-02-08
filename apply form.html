@@ -1,0 +1,48 @@
+<!Doctype html>
+<html lang="en-US">
+<meta charset="UTF-8">
+<head>
+  <title>Application from</title>
+  <style>
+  h1 {text-align:center;}
+  p {font-size:24px;}
+  </style>
+</head>
+<form action=".php" method="post">
+  <h1>Room booking entry(Staff/Student)</h1>
+  <p>Please do fill up the form using correct information:</p>
+  <p>Membership type:
+  <input type="radio" name="Membership">Staff</input>
+  <input type="radio" name="Membership">Student</input>
+</p>
+<p>Room type:
+<select>
+  <option value="mainhall">Main hall</option>
+  <option value="lectureroom">Lecture room</option>
+  <option value="tutorialroom">Tutorial room</option>
+  <option value="designstudio" >Design Studio</option>
+  <option value="meetingroom">Meeting room</option>
+</select>
+</p>
+
+<p>Organizer:
+  <input type="text" name="">
+</p>
+<p>
+  Number of participants:
+  <input type="text">
+</p>
+<p>Date (dd/mm/yyyy):
+  <input type="text" name="date">
+</p>
+<p>Start time (am/pm):
+  <input type="text" name="stime">
+</p>
+<p>
+  End time (am/pm):
+  <input type="text" name="ftime">
+</p>
+</form>
+<button type="button" onclick="alert('You have succesfully submit the form.')">Submit</button>
+
+</html>
