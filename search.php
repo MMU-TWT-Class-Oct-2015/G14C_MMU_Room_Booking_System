@@ -1,41 +1,39 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin_username'])){
+    die("Please login first");
+}
+?>
+
 <html>
 <head>
 <title>MMU Room Booking System</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="style2.css" type="text/css" />
 </head>
-<body background="image/back.jpg">
-	<center>
-	<form name="get_roomid" action="student_page.php" method="post" >
-		<table align="center" width="30%" border="0">
-		<p align="center"><font size="7" face="Georgia" color="#000000">
-		Member Register</font></p>
-		<tr>
-		<td><input type="text" name="userid" value="<?php echo htmlspecialchars($usernam); ?>" readonly="" /></td>
-		</tr>
-		<tr>
-		<td>
-			<div id='room_type_container'>
-					<select name='room_type' onchange="window.loadrid()">
-							<option disabled>Select Room Type</option>
-							<?php while($row = mysql_fetch_assoc($r)): ?>
-							<option value='<?php echo $row["room_nums"]?>'><?php echo $row['room_type']?></option>
-							<?php endwhile; ?>
-					</select>
-			</div>
-		</td>
-		</tr>
-		<tr>
-		<td>
-			<div id='room_id_container'></div>
-			<div style="clear: both"></div></td>
-			</tr>
-			<tr>
-			<td>
-			<button type="submit" name="submit" action="student_page.php">NEXT</button>
-		</td>
-		</tr>
-		</table>
-	</form>
-	</center>
+<body>
+<center>
+	<p align="right"><font size="6" face="Georgia" color="#000000">
+	<a href="admin_page.php">HOME</a></font></p>
+	<p align="right"><font size="6" face="Georgia" color="#000000">
+	<a href="logout.php">LOG OUT</a></font></p>
+	<p align="center"><font size="7" face="Georgia" color="#000000">
+	Search by Options</font></p>
+	<form name="frm" method="post" action="searchresult.php">
+<table align="center" width="30%" border="0">
+<tr>
+	<td><input type="text" name="query1" placeholder="Search Input" required=""/></td>
+</tr>
+<tr>
+<td><button id="" type="submit" name="submit" onclick="">Search By Date</button></td>
+</tr>
+<tr>
+<td><button id="" type="submit" name="submit1" onclick="">Search By Rooms</button></td>
+</tr>
+<tr>
+<td><button id="" type="submit" name="submit2" onclick="">Search By Members</button></td>
+</tr>
+</table>
+</form>
+</center>
 </body>
 </html>
