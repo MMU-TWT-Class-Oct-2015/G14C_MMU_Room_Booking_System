@@ -50,11 +50,6 @@ a:active {
       <td height="5" align="center" width="20%"><a href="admin_add_room.php"><STRONG>
       <FONT color=#800000 size="5">Add</FONT></STRONG>
       </td>
-      <td height="51" align="center" width="20%">
-  <a href=""><STRONG><B>
-  <FONT
- color=#800000 size="5">Edit</FONT></B></STRONG></td>
-
       <td width="16%" height="51" align="center">
 <a href="admin_delete_room.php">
 <font size="5"><STRONG><B>
@@ -72,6 +67,10 @@ a:active {
   <tr>
     <td height="51" align="center" width="20%"><STRONG>
     <FONT
+color=#800000 size="5">EDIT</FONT></STRONG>
+    </td>
+    <td height="51" align="center" width="20%"><STRONG>
+    <FONT
 color=#800000 size="5">Room ID</FONT></STRONG>
     </td>
     <td height="51" align="center" width="20%"><STRONG><B>
@@ -87,6 +86,8 @@ color=#800000 size="5">Room Capacity</FONT></B></STRONG></font></td>
   while($row = mysql_fetch_array($result, MYSQL_BOTH))
   {
   ?>
+  <td height="51" align="center" width="20%"><STRONG><B>
+<FONT color=#800000 size="5"><?php echo "<a href='update_room.php?edit=$row[0]'>Edit</a>"; ?></FONT></B></STRONG></td>
   <td>
     <font size="5"><STRONG><B>
     <FONT
