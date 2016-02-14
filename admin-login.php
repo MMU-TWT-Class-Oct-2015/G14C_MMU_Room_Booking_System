@@ -14,7 +14,7 @@
 <p align="center"><font size="7" face="Georgia" color="#000000">
 Admin Login</font></p>
 <tr>
-<td><input type="text" name="username" placeholder="Your username" required /></td>
+<td><input type="text" name="admin_username" placeholder="Your username" required /></td>
 </tr>
 <tr>
 <td><input type="password" name="pass" placeholder="Your Password" required /></td>

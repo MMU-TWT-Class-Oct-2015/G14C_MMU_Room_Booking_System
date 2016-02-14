@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Welcome to MMU Room Booking System</title>
+<title>MMU Room Booking System</title>
 </head>
 
 <body bgcolor="#CCFFFF">
