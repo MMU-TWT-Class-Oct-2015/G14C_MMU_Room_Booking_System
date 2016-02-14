@@ -23,11 +23,11 @@ if($_SESSION['membership_type']!="student"){
 
             require 'db_connect.php';
 
-            $r = mysql_query('SELECT distinct room_nums,room_type FROM room WHERE room_nums=1
+            $r = mysql_query("SELECT distinct room_type FROM room WHERE room_type='Tutorial room'
             union
-            SELECT distinct room_nums,room_type FROM room WHERE room_nums=3
+            SELECT distinct room_type FROM room WHERE room_type='Main Hall'
             union
-            SELECT distinct room_nums,room_type FROM room WHERE room_nums=5');
+            SELECT distinct room_type FROM room WHERE room_type='Lecture room'");
         ?>
         <center>
         <form name="get_roomid" action="student_page.php" method="post" >
@@ -43,7 +43,7 @@ if($_SESSION['membership_type']!="student"){
                 <select name='room_type' onchange="window.loadrid()" required>
                     <option value='' selected="selected">Select Room Type</option>
                     <?php while($row = mysql_fetch_assoc($r)): ?>
-                    <option value='<?php echo $row["room_nums"]?>'><?php echo $row['room_type']?></option>
+                    <option value='<?php echo $row["room_type"]?>'><?php echo $row['room_type']?></option>
                     <?php endwhile; ?>
                 </select>
             </div>
