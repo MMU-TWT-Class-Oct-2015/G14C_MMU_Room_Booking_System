@@ -69,79 +69,81 @@ window.location.href='staff_room_book.php';
 	<a href="index.php">LOG OUT</a></font></p>
   <script type="text/javascript">
   function checkdate(form)
-  {
-    // regular expression to match required date format
-    re = /^(\d{1,2})\-(\d{1,2})\-(\d{4})$/;
+    {
+      // regular expression to match required date format
+      re = /^(\d{1,2})\-(\d{1,2})\-(\d{4})$/;
 
-    if(form.bdate.value != '') {
-      if(regs = form.bdate.value.match(re)) {
-        // day value between 1 and 31
-        if(regs[1] < 1 || regs[1] > 31) {
-          alert("Invalid value for day: " + regs[1]);
+      if(form.bdate.value != '') {
+        if(regs = form.bdate.value.match(re)) {
+          // day value between 1 and 31
+          if(regs[1] < 1 || regs[1] > 31) {
+            alert("Invalid value for day: " + regs[1]);
+            form.bdate.focus();
+            return false;
+          }
+          // month value between 1 and 12
+          if(regs[2] < 1 || regs[2] > 12) {
+            alert("Invalid value for month: " + regs[2]);
+            form.bdate.focus();
+            return false;
+          }
+          // year value between 1902 and 2016
+          if(regs[3] < 1902 || regs[3] > (new Date()).getFullYear()) {
+            alert("Invalid value for year: " + regs[3] + " - must be between 1902 and " + (new Date()).getFullYear());
+            form.bdate.focus();
+            return false;
+          }
+        } else {
+          alert("Invalid date format: " + form.bdate.value);
           form.bdate.focus();
           return false;
         }
-        // month value between 1 and 12
-        if(regs[2] < 1 || regs[2] > 12) {
-          alert("Invalid value for month: " + regs[2]);
-          form.bdate.focus();
-          return false;
-        }
-        // year value between 1902 and 2016
-        if(regs[3] < 1902 || regs[3] > (new Date()).getFullYear()) {
-          alert("Invalid value for year: " + regs[3] + " - must be between 1902 and " + (new Date()).getFullYear());
-          form.bdate.focus();
-          return false;
-        }
-      } else {
-        alert("Invalid date format: " + form.bdate.value);
-        form.bdate.focus();
-        return false;
       }
+      else{
+      alert("Please fill up the date..!");
     }
-    else{
-    alert("Please fill up the date..!");
-  }
-  return true;
-  }
-  function checkstarttime(form){
-    // regular expression to match required time format
-    re = /^(\d{1,2}):(\d{2})([ap]m)?$/;
+    return true;
+    }
 
-    if(form.tstart.value != '') {
-      if(regs = form.tstart.value.match(re)) {
-        if(regs[3]) {
-          // 12-hour value between 1 and 12
-          if(regs[1] < 1 || regs[1] > 12) {
-            alert("Invalid value for hours: " + regs[1]);
+  function checkstarttime(form){
+      // regular expression to match required time format
+      re = /^(\d{1,2}):(\d{2})([ap]m)?$/;
+
+      if(form.tstart.value != '') {
+        if(regs = form.tstart.value.match(re)) {
+          if(regs[3]) {
+            // 12-hour value between 1 and 12
+            if(regs[1] < 1 || regs[1] > 12) {
+              alert("Invalid value for hours: " + regs[1]);
+              form.tstart.focus();
+              return false;
+            }
+          } else {
+            // 24-hour value between 0 and 23
+            if(regs[1] > 23) {
+              alert("Invalid value for hours: " + regs[1]);
+              form.tstart.focus();
+              return false;
+            }
+          }
+          // minute value between 0 and 59
+          if(regs[2] > 59) {
+            alert("Invalid value for minutes: " + regs[2]);
             form.tstart.focus();
             return false;
           }
         } else {
-          // 24-hour value between 0 and 23
-          if(regs[1] > 23) {
-            alert("Invalid value for hours: " + regs[1]);
-            form.tstart.focus();
-            return false;
-          }
-        }
-        // minute value between 0 and 59
-        if(regs[2] > 59) {
-          alert("Invalid value for minutes: " + regs[2]);
+          alert("Invalid time format: " + form.tstart.value);
           form.tstart.focus();
           return false;
         }
-      } else {
-        alert("Invalid time format: " + form.tstart.value);
-        form.tstart.focus();
-        return false;
       }
+      else {
+        alert("Please fill up the starting time..!");
+      }
+      return true;
     }
-    else {
-      alert("Please fill up the starting time..!");
-    }
-    return true;
-  }
+
   function checkendtime(form){
     // regular expression to match required time format
     re = /^(\d{1,2}):(\d{2})([ap]m)?$/;
