@@ -1,25 +1,54 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin_username'])){
+    die("Please login first");
+}
+?>
 <html>
 <head>
   <style>
   h1{text-align:center;
-    margin-top:150;
+    margin-top:0;
   }
   table, th, td {
     border:1px solid black;
 }
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: green;
+}
+
   </style>
+  <?php
+   include 'db_connect.php';
+  $result = mysql_query("SELECT * FROM `room` ORDER BY room_id",$link) or die("Database Error");
+  ?>
 </head>
-<body background="http://mido.co.za/wp-content/uploads/2014/08/plain-blue-background-5074-5380-hd-wallpapers1.png">
+<body background="image/back.jpg">
   <p align="right"><font size="6" face="Georgia" color="#000000">
-	<a href="index.php">HOME</a></font></p>
+	<a href="admin_page.php">HOME</a></font></p>
   <p align="right"><font size="6" face="Georgia" color="#000000">
   <a href="logout.php">Logout</a></font></p>
-<h1 >Room Bookings</h1>
+<h1 >Room Types</h1>
   <table border="1" width="90%" id="table1" height="50" align=center>
     <tr>
-      <td height="5" align="center" width="20%"><a href=""><STRONG>
-      <FONT
-color=#800000 size="5">Add</FONT></STRONG>
+      <td height="5" align="center" width="20%"><a href="admin_add_room.php"><STRONG>
+      <FONT color=#800000 size="5">Add</FONT></STRONG>
       </td>
       <td height="51" align="center" width="20%">
   <a href=""><STRONG><B>
@@ -27,7 +56,7 @@ color=#800000 size="5">Add</FONT></STRONG>
  color=#800000 size="5">Edit</FONT></B></STRONG></td>
 
       <td width="16%" height="51" align="center">
-<a href="">
+<a href="admin_delete_room.php">
 <font size="5"><STRONG><B>
   <FONT
  color=#800000 size="5">Delete</FONT></B></STRONG></font></td>
@@ -38,6 +67,7 @@ color=#800000 size="5">Add</FONT></STRONG>
 <br>
 <br>
 <br>
+
 <table border="1" width="90%" id="table1" height="50" align=center>
   <tr>
     <td height="51" align="center" width="20%"><STRONG>
@@ -52,8 +82,37 @@ color=#800000 size="5">Room Type</FONT></B></STRONG></td>
 <font size="5"><STRONG><B>
 <FONT
 color=#800000 size="5">Room Capacity</FONT></B></STRONG></font></td>
-  </tr>
+<tr>
+  <?php
+  while($row = mysql_fetch_array($result, MYSQL_BOTH))
+  {
+  ?>
+  <td>
+    <font size="5"><STRONG><B>
+    <FONT
+    color=#800000 size="5"><?php
+    echo $row[0];
+    ?></FONT></B></STRONG></font>
+  </td>
+  <td>
+    <font size="5"><STRONG><B>
+    <FONT
+    color=#800000 size="5"><?php
+    echo $row[1];
+    ?></FONT></B></STRONG></font>
+  </td>
+  <td>
+    <font size="5"><STRONG><B>
+    <FONT
+    color=#800000 size="5"><?php
+    echo $row[2];
+    ?></FONT></B></STRONG></font>
+  </td>
+</tr>
+<?php
+}
+?>
 </table>
-
+</table action="">
 </body>
 </html>

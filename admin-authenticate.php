@@ -1,8 +1,8 @@
 <?php
 session_start();
 include_once "db_connect.php";
-$username = $_POST['username'];
-$password = $_POST['pass'];
+$username = $_POST['admin_username'];
+$password = md5($_POST['pass']);
 $op = $_GET['op'];
 
 if($op=="in"){
@@ -12,7 +12,7 @@ if($op=="in"){
         $_SESSION['admin_id'] = $qry['admin_id'];
 		$_SESSION['admin_username'] = $qry['admin_username'];
     if($qry['admin_username']=="admin"){
-        header("location:page-admin.php");
+        header("location:admin_page.php");
     }
     }else{
 		?>

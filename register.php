@@ -1,9 +1,5 @@
 <?php
 session_start();
-if(isset($_SESSION['user'])!="")
-{
-	header("Location: home.php");
-}
 include_once 'db_connect.php';
 
 if(isset($_POST['btn-signup']))
@@ -21,6 +17,7 @@ if(isset($_POST['btn-signup']))
 	$utype = trim($utype);
 	$uphone = trim($uphone);
 	$umail = trim($umail);
+	$upass = md5($upass);
 
 
 	// username exist or not
