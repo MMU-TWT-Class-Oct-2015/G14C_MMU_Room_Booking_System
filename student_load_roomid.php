@@ -16,7 +16,7 @@ if($_SESSION['membership_type']!="student"){
         $c = $_GET['room_type'];
         $rid = '';
 
-        $r = mysql_query("SELECT `room_id` FROM room WHERE room_nums='$c'");
+        $r = mysql_query("SELECT `room_id` FROM room WHERE room_type='$c'");
 
         while($row = mysql_fetch_assoc($r))
         {
